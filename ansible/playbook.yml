@@ -38,3 +38,27 @@
   - name: Make sure Docker is running
     service: name=docker state=started
     tags: docker
+
+  - name: Run HTTPD
+   docker_container:
+    name: httpd
+    image: jdoe/my-httpd:1.0
+   
+  - name: Create a network
+   docker_network:
+    name: network_one
+
+  - name: Launch database and connect to network
+      docker_container:
+        name: database
+        image: vcuisini/api
+        networks:
+          - name: network_one
+
+  - name: Launch App/backend
+     docker_container:
+        name: backend
+        image: vcuisini/simple-api
+        networks:
+          - name: network_one
+        
