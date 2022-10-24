@@ -1,39 +1,39 @@
 - hosts: all
-  gather_facts: false
-  become: yes
+ gather_facts: false
+ become: yes
 
 # Install Docker
  tasks:
  - name: Clean packages
    command:
-   cmd: dnf clean -y packages
+     cmd: dnf clean -y packages
 
   - name: Install device-mapper-persistent-data
     dnf:
-    name: device-mapper-persistent-data
-    state: latest
+      name: device-mapper-persistent-data
+      state: latest
 
   - name: Install lvm2
     dnf:
-    name: lvm2
-    state: latest
+      name: lvm2
+      state: latest
 
   - name: add repo docker
     command:
-    cmd: sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+      cmd: sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 
   -  name: Install Docker
      dnf:
-     name: docker-ce
-     state: present
+       name: docker-ce
+       state: present
 
   - name: install python3
     dnf:
-    name: python3
+      name: python3
 
   - name: Pip install
     pip:
-    name: docker
+      name: docker
 
   - name: Make sure Docker is running
     service: name=docker state=started
@@ -46,19 +46,19 @@
    
   - name: Create a network
    docker_network:
-   name: network_one
+     name: network_one
 
   - name: Launch database and connect to network
     docker_container:
-    name: database
-    image: vcuisini/api
-    networks:
-    - name: network_one
+      name: database
+      image: vcuisini/api
+      networks:
+        - name: network_one
 
   - name: Launch App/backend
     docker_container:
-    name: backend
-    image: vcuisini/simple-api
-    networks:
-    - name: network_one
+      name: backend
+      image: vcuisini/simple-api
+      networks:
+        - name: network_one
         
