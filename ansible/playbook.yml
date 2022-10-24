@@ -49,16 +49,16 @@
    name: network_one
 
   - name: Launch database and connect to network
-      docker_container:
-      name: database
-      image: vcuisini/api
-      networks:
-      - name: network_one
+    docker_container:
+    name: database
+    image: vcuisini/api
+    networks:
+    - name: network_one
 
   - name: Launch App/backend
-     docker_container:
-     name: backend
-     image: vcuisini/simple-api
-     networks:
-     - name: network_one
+    docker_container:
+    name: backend
+    image: vcuisini/simple-api
+    networks:
+    - name: network_one
         
