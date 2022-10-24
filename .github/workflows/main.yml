@@ -23,7 +23,7 @@ jobs:
 
      #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=valentine2206 -Dsonar.organization=valentine2206_correction-tp1-devops -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./simple-api/pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=valentine2206_correction-tp1-devops -Dsonar.organization=valentine2206 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./simple-api/pom.xml
         
   build-and-push-docker-image:  
     needs: test-backend
