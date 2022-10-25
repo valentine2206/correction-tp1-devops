@@ -24,9 +24,16 @@ services:
     container_name: reverse_proxy
     build: ./httpd
     ports:
-      - "80:80"
+      - "8080:8080"
     networks:
       - app-network
+  
+  front:
+    container_name: frontend
+    build: ./devops-front-main
+    ports:
+      - "80:80"
+    
 
 
 volumes:

@@ -2,5 +2,11 @@
     docker_container:
       name: database
       image: vcuisini/correction-tp1-devops:database
+      state: started
+      env:
+        POSTGRES_USER: "usr"
+        POSTGRES_PASSWORD: "pwd"
+        POSTGRES_DB: "db"
+
       networks:
         - name: network_one

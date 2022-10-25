@@ -1,3 +1,4 @@
   - name: Create a network
     docker_network:
       name: network_one
+      state: present

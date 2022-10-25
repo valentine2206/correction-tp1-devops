@@ -4,11 +4,10 @@
 
   roles:
     - docker
-    - httpd
     - network
+    - httpd
     - database
     - backend
-    - devops-front-main
 
 
 
