@@ -56,3 +56,10 @@ jobs:
           context: ./httpd
           tags: ${{secrets.DOCKERHUB_USERNAME}}/correction-tp1-devops:httpd
           push: ${{ github.ref == 'refs/heads/master' }}
+
+      - name: Build and push front
+        uses: docker/build-push-action@v2
+        with:
+          context: ./devops-front-main
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/correction-tp1-devops:front
+          push: ${{ github.ref == 'refs/heads/master' }}
