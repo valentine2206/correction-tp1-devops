@@ -1,0 +1,6 @@
+  - name: Launch front part
+    docker_container:
+      name: frontend
+      image: vcuisini/correction-tp1-devops:front
+      networks:
+        - name: network_one
