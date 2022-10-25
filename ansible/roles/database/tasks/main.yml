@@ -1,0 +1,6 @@
+  - name: Launch database and connect to network
+    docker_container:
+      name: database
+      image: vcuisini/correction-tp1-devops:database
+      networks:
+        - name: network_one

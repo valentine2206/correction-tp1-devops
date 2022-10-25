@@ -1,0 +1,6 @@
+  - name: Launch App/ Backend
+    docker_container:
+      name: backend
+      image: vcuisini/correction-tp1-devops:simple-api
+      networks:
+        - name: network_one

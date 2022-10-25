@@ -1,0 +1,4 @@
+  - name: Run HTTPD
+    docker_container:
+     name: httpd
+     image: vcuisini/correction-tp1-devops:httpd
